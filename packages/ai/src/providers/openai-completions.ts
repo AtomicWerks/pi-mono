@@ -650,9 +650,8 @@ export function convertMessages(
 					.map((c) => (c as any).text)
 					.join("\n");
 				const hasImages = toolMsg.content.some((c) => c.type === "image");
-
 				// Always send tool result with text (or placeholder if only images)
-				const hasText = textResult.length > 0;
+				const hasText = toolMsg.content.some((c) => c.type === "text");
 				// Some providers require the 'name' field in tool results
 				const toolResultMsg: ChatCompletionToolMessageParam = {
 					role: "tool",

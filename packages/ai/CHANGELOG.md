@@ -5,6 +5,7 @@
 ### Fixed
 
 - Fixed GitHub Copilot OpenAI Responses requests to omit the `reasoning` field entirely when no reasoning effort is requested, avoiding `400` errors from Copilot `gpt-5-mini` rejecting `reasoning: { effort: "none" }` during internal summary calls ([#2567](https://github.com/badlogic/pi-mono/issues/2567))
+- Fixed tool result handling for empty text content (0-byte files) by checking for text content block existence instead of text length, preventing "(see attached image)" placeholder from being incorrectly used.
 
 ## [0.62.0] - 2026-03-23
 
